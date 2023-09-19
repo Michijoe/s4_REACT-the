@@ -1,0 +1,23 @@
+import { PiPlantFill } from 'react-icons/pi'
+import { FaDollarSign } from 'react-icons/fa'
+import { PiChatTeardropTextBold } from 'react-icons/pi'
+import Button from './Button'
+
+function Produit({ produit }) {
+    const onClick = (e) => {
+        console.log(e);
+    };
+
+    return (
+        <div className="catalogue__produit">
+            <h3>{produit.nom}</h3>
+            <p><PiPlantFill /> {produit.categorie}</p>
+            <p><PiChatTeardropTextBold /> {produit.description}</p>
+            <p><FaDollarSign /> {produit.prix} CAD</p>
+            <Button text='Modifier' color='#716293' onClick={onClick} />
+            <Button text='Supprimer' color='#8E3829' onClick={onClick} />
+        </div>
+    )
+}
+
+export default Produit
