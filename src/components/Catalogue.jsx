@@ -1,7 +1,7 @@
 import Product from "./Product"
 import Button from "./Button"
 
-function Catalogue({ produits }) {
+function Catalogue({ produits, onDeleteCatalogue, onModifCatalogue }) {
     const onClick = (e) => {
         console.log(e);
     };
@@ -15,7 +15,7 @@ function Catalogue({ produits }) {
             </div>
             <div className="catalogue__produits">
                 {produits.map((produit) => (
-                    <Product produit={produit} />
+                    <Product produit={produit} onDelete={onDeleteCatalogue} onModif={onModifCatalogue} />
                 ))}
             </div>
         </section>

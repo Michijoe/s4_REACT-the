@@ -3,9 +3,10 @@ import { FaDollarSign } from 'react-icons/fa'
 import { PiChatTeardropTextBold } from 'react-icons/pi'
 import Button from './Button'
 
-function Produit({ produit }) {
+function Produit({ produit, onDelete, onModif }) {
     const onClick = (e) => {
         console.log(e);
+        // afficher modale et bouton renvoie vers onModif
     };
 
     return (
@@ -15,7 +16,7 @@ function Produit({ produit }) {
             <p><PiChatTeardropTextBold /> {produit.description}</p>
             <p><FaDollarSign /> {produit.prix} CAD</p>
             <Button text='Modifier' color='#716293' onClick={onClick} />
-            <Button text='Supprimer' color='#8E3829' onClick={onClick} />
+            <Button text='Supprimer' color='#8E3829' onClick={() => onDelete(produit.id)} />
         </div>
     )
 }

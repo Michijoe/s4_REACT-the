@@ -6,7 +6,7 @@ import AddForm from './components/AddForm';
 import Footer from './components/Footer';
 
 function App() {
-  const [catalogue, setProducts] = useState([
+  const [catalogue, setCatalogue] = useState([
     {
       id: 1,
       nom: 'Réveil du printemps - Thé vert, aux fleurs de jasmin',
@@ -44,11 +44,21 @@ function App() {
     }
   ]);
 
+  // DELETE
+  const deleteProduct = (id) => {
+    setCatalogue(catalogue.filter((product) => product.id !== id));
+  }
+
   // ADD
   const addProduct = (product) => {
     const id = Math.floor(Math.random() * 1000);
     const newProduct = { id, ...product };
-    setProducts([...catalogue, newProduct]);
+    setCatalogue([...catalogue, newProduct]);
+  }
+
+  // UPDATE
+  const modifProduct = (id) => {
+    setCatalogue(catalogue.map((produit) => produit.id === id ? { ...produit, nom: produit.nom, categorie: produit.categorie, description: produit.description } : produit));
   }
 
   return (
@@ -57,7 +67,7 @@ function App() {
       <main>
         <Hero />
         {catalogue.length > 0 ? (
-          <Catalogue produits={catalogue} />
+          <Catalogue produits={catalogue} onDeleteCatalogue={deleteProduct} onModifCatalogue={modifProduct} />
         ) : (
           'Pas de produits'
         )}
