@@ -1,18 +1,14 @@
 import Banner from '../assets/hero.jpg'
 import { PiPlantFill } from 'react-icons/pi'
-import { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
-    const [activeNav, setActiveNav] = useState("#");
-
     return (
         <section className='herobanner'>
-            <img src={Banner} alt="Hero banner image" />
+            <img src={Banner} alt="Hero banner" />
             <h2 className='herobanner-text'>Consultez notre catalogue
-                <a href="#produits" onClick={() => setActiveNav('#produits')}> <PiPlantFill /></a>
+                <Link to="/catalogue"> <PiPlantFill /></Link>
             </h2>
-
         </section>
     )
 }

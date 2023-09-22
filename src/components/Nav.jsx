@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 
 function Nav() {
-    const [activeNav, setActiveNav] = useState("#");
+    const location = useLocation();
 
     return (
         <nav>
-            <a href="#" onClick={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}>Accueil</a>
-            <a href="#catalogue" onClick={() => setActiveNav('#catalogue')} className={activeNav === '#catalogue' ? 'active' : ''}>Catalogue</a>
+            <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Accueil</Link>
+            <Link to="/catalogue" className={location.pathname === '/catalogue' ? 'active' : ''}>Catalogue</Link>
         </nav>
     )
 }

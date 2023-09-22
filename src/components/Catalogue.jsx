@@ -1,21 +1,18 @@
 import Product from "./Product"
 import Button from "./Button"
 
-function Catalogue({ produits, onDeleteCatalogue, onModifCatalogue }) {
-    const onClick = (e) => {
-        console.log(e);
-    };
-
+function Catalogue({ produits, onAdd, onDeleteCatalogue, onUpdateCatalogue }) {
     return (
-        <section id="catalogue" className="catalogue">
+        <section className="catalogue">
+            {/* Header catalogue */}
             <div className="catalogue__header">
                 <h2>Catalogue des thés</h2>
-                <a href="#formulaire"><Button text='Ajouter un produit' color='#DBA745' onClick={onClick} /></a>
-
+                <Button text='Ajouter un produit' color='#DBA745' onClick={onAdd} />
             </div>
+            {/* Contenu catalogue */}
             <div className="catalogue__produits">
                 {produits.map((produit) => (
-                    <Product produit={produit} onDelete={onDeleteCatalogue} onModif={onModifCatalogue} />
+                    <Product key={produit.id} produit={produit} onDelete={onDeleteCatalogue} onUpdate={onUpdateCatalogue} />
                 ))}
             </div>
         </section>

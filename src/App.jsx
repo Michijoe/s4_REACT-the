@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Catalogue from './components/Catalogue';
 import AddForm from './components/AddForm';
 import Footer from './components/Footer';
+import UpdateForm from './components/UpdateForm';
+
 
 function App() {
   const [catalogue, setCatalogue] = useState([
@@ -44,37 +48,75 @@ function App() {
     }
   ]);
 
-  // DELETE
-  const deleteProduct = (id) => {
-    setCatalogue(catalogue.filter((product) => product.id !== id));
-  }
 
-  // ADD
+
+  //////////////   ADD   ////////////////////////////////////
+  // Toggle true/false pour affichage de la modale d'ajout de produit
+  const [showAddForm, setShowAddForm] = useState(false);
+
+  // Ajouter un produit au catalogue et fermer la modale
   const addProduct = (product) => {
     const id = Math.floor(Math.random() * 1000);
     const newProduct = { id, ...product };
     setCatalogue([...catalogue, newProduct]);
+    setShowAddForm(false);
   }
 
-  // UPDATE
-  const modifProduct = (id) => {
-    setCatalogue(catalogue.map((produit) => produit.id === id ? { ...produit, nom: produit.nom, categorie: produit.categorie, description: produit.description } : produit));
-  }
+  ////////////   UPDATE   ////////////////////////////////////
+  // Variable editingProduct qui contiendra le produit à modifier
+  const [editingProduct, setEditingProduct] = useState(null);
+
+  // Au clic sur le bouton modifier, on alimente editingProduct avec le produit sélectionné
+  const handleUpdateClick = (product) => {
+    setEditingProduct(product);
+  };
+
+  // Au clic sur le bouton valider, on met à jour le catalogue et on vide editingProduct
+  const updateProduct = (updatedProduct) => {
+    setCatalogue(catalogue.map((product) => product.id === updatedProduct.id ? updatedProduct : product));
+    setEditingProduct(null);
+  };
+
+  ///////////   DELETE   ////////////////////////////////////
+  // Au clic sur le bouton supprimer, on met à jour le catalogue en filtrant le produit à supprimer
+  const deleteProduct = (id) => {
+    setCatalogue(catalogue.filter((product) => product.id !== id));
+  };
+
 
   return (
-    <>
+    <BrowserRouter basename={"/react"}>
       <Header />
       <main>
-        <Hero />
-        {catalogue.length > 0 ? (
-          <Catalogue produits={catalogue} onDeleteCatalogue={deleteProduct} onModifCatalogue={modifProduct} />
-        ) : (
-          'Pas de produits'
-        )}
-        <AddForm onAdd={addProduct} />
+        <Routes>
+          {/* ACCUEIL */}
+          <Route exact path={`/`} element={<Hero />} />
+
+          {/* CATALOGUE */}
+          <Route path={'/catalogue'} element={catalogue.length > 0 ? (
+            <Catalogue
+              produits={catalogue}
+              onAdd={() => setShowAddForm(true)}
+              onDeleteCatalogue={deleteProduct}
+              onUpdateCatalogue={handleUpdateClick} />
+          ) : (
+            'Pas de produits'
+          )} />
+        </Routes>
+        {/* MODALE AJOUT PRODUIT */}
+        {showAddForm && <AddForm
+          onAdd={addProduct}
+          onCancel={() => setShowAddForm(false)} />}
+
+        {/* MODALE UPDATE PRODUIT */}
+        {editingProduct && <UpdateForm
+          product={editingProduct}
+          onUpdate={updateProduct}
+          onCancel={() => setEditingProduct(null)} />}
+
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
