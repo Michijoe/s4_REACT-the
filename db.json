@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "nom": "Réveil du printemps - Thé vert, aux fleurs de jasmin",
+    "categorie": "Thé vert",
+    "description": "Le Réveil du Printemps vous transporte dans un monde de douceur et d'élégance avec notre classique thé vert aux fleurs de jasmin. Cette infusion délicate capture l'essence même de la saison du renouveau.",
+    "prix": 5.00
+  },
+  {
+    "id": 2,
+    "nom": "Le souk Marocain - Thé vert à la menthe",
+    "categorie": "Thé vert",
+    "description": "Voyagez au cœur du Souk marocain avec notre thé vert à la menthe, une infusion traditionnelle et rafraîchissante qui capture l'essence de la culture marocaine.",
+    "prix": 8.50
+  },
+  {
+    "id": 3,
+    "nom": "Détox - Tisane menthe tilleul",
+    "categorie": "Tisane",
+    "description": "Purifie, nettoie et ré-enligne. Sensation de bien-être après chaque gorgée. Parfait aussi pour l’heure du coucher ne contenant aucune caféine.",
+    "prix": 6.50
+  },
+  {
+    "id": 4,
+    "nom": "La belle framboise | Tisane sans théine",
+    "categorie": "Tisane",
+    "description": "Découvrez notre délicieuse infusion La belle framboise, un mélange harmonieux d'ingrédients soigneusement sélectionnés pour vous offrir une expérience gustative rafraîchissante et fruitée.",
+    "prix": 4.00
+  },
+  {
+    "id": 5,
+    "nom": "Chaï au chocolat | Thé noir épices et chocolat",
+    "categorie": "Thé noir",
+    "description": "Tisane de plantes avec des notes agréables de chocolat accompagnée d’épices indiennes.",
+    "prix": 8.50
+  },
+  {
+    "id": 6,
+    "nom": "Chaï au chocolat | Thé noir épices et chocolat",
+    "categorie": "Thé noir",
+    "description": "Tisane de plantes avec des notes agréables de chocolat accompagnée d’épices indiennes.",
+    "prix": 8.50
+  },
+  {
+    "id": 7,
+    "nom": "La Fiesta | Chaï à la noix de coco",
+    "categorie": "Chai",
+    "description": "C'est la fiesta ! Qu'on s'amuse entre amis ou en famille, il y a des odeurs qui restent ancrées dans nos souvenirs de fête. La vanille, la noix de coco, des notes de annelle et de gingembre... wow !",
+    "prix": 7.50
+  },
+  {
+    "id": 8,
+    "nom": "Les yeux bleus - Tisane sans caféine",
+    "categorie": "Tisane",
+    "description": "Un soupçon de caramel donne à cette tisane fruitée une douce saveur c'est comme un bonbon.",
+    "prix": 6.50
+  },
+  {
+    "id": 9,
+    "nom": "Le vieux corsaire - Pour les amoureux d'orange!",
+    "categorie": "Thé noir",
+    "description": "Il en a vu des mers, des pirates et des contrées lointaines. Son navire craquant sous le poids des marchandises et des canons, il l’a maintenu à flot dans les pires tempêtes et dans les orages les plus violents. ",
+    "prix": 7.50
+  }
+]
