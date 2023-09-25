@@ -1,5 +1,18 @@
+# Commandes VERSION 1
+
 npx create-react-app tp2
 npm install react-icons --save
 npm i react-router-dom
-
 npm start
+npm run build
+
+# Pour publier sur WEBDEV
+1. Ajouter un basename au router :
+<BrowserRouter basename={"/react"}>
+
+2. Ajouter un .htaccess à la racine :
+RewriteEngine On
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+RewriteRule ^ /react/index.html [L]

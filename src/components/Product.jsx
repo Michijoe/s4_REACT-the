@@ -10,8 +10,10 @@ function Produit({ produit, onDelete, onUpdate }) {
             <p><PiPlantFill /> {produit.categorie}</p>
             <p><PiChatTeardropTextBold /> {produit.description}</p>
             <p><FaDollarSign /> {produit.prix} CAD</p>
-            <Button text='Modifier' color='#716293' onClick={() => onUpdate(produit)} />
-            <Button text='Supprimer' color='#8E3829' onClick={() => onDelete(produit.id)} />
+            <div>
+                <Button text='Modifier' color='var(--color-purple)' onClick={() => onUpdate(produit)} />
+                <Button text='Supprimer' color='#8E3829' onClick={() => onDelete(produit.id)} />
+            </div>
         </div>
     )
 }
