@@ -15,7 +15,9 @@
 ## ⚡ Intro
 
 Single Page Application réalisée avec REACT qui donne accès à un répertoire de produits. L'utilisateur peut insérer, mettre à jour et supprimer des produits dans un objet JSON. 
+
 Le projet utilise un routage côté client pour fonctionner en SPA : react-router-dom.
+
 Le projet utilise un serveur local json pour simuler les opérations REST : json-server.
 
 ## 🚀 Quickstart
